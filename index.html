@@ -5,37 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentines</title>
     <style>
-        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
         .envelope {
             position: relative;
             width: 300px;
             height: 200px;
-            border: 2px solid #E6E6E6;
+            background-color: #ffcccb;
+            border: 2px solid #ff6347;
             border-radius: 10px;
-            background-color: white;
             overflow: hidden;
-            margin: 20px auto;
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
+        .envelope.open {
+            opacity: 0.8;
         }
         .letter {
             position: absolute;
-            width: 90%;
-            height: auto;
-            top: 30%; 
-            left: 5%;
-            transform: translateY(-50%);
-            background-color: #FFDDC1;
-            padding: 20px;
+            top: 20px;
+            left: 10px;
+            width: 280px;
+            height: 160px;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .envelope.open .letter {
+            opacity: 1;
+        }
+        .envelope-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="envelope">
-        <div class="letter">
-            <h1>Happy Valentine's Day!</h1>
-            <p>Wishing you all the love and happiness in the world!</p>
+    <h1>Send Your Valentine's Greeting!</h1>
+    <div class="envelope" id="envelope">
+        <div class="letter" id="letter">
+            <h2>Dear Valentine,</h2>
+            <p>I hope this day brings you joy and happiness!</p>
+            <p>With all my love,<br>Your Secret Admirer</p>
         </div>
     </div>
+    <button class="envelope-btn" id="open-button">Open Envelope</button>
+    <script>
+        document.getElementById('open-button').onclick = function() {
+            document.getElementById('envelope').classList.toggle('open');
+        };
+    </script>
 </body>
 </html>
