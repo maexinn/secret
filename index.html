@@ -26,6 +26,7 @@ body {
   position: relative;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  perspective: 1000px;
 }
 
 /* Flap */
@@ -40,6 +41,7 @@ body {
   border-bottom: 90px solid #ff5f7a;
   transition: 0.5s;
   transform-origin: top;
+  backface-visibility: hidden;
 }
 
 /* Letter */
@@ -94,7 +96,7 @@ body {
   <div class="flap"></div>
 
   <div class="letter">
-    <h3>Happy Valentine’s 💖</h3>
+    <h3>Happy Valentine's 💖</h3>
     <p>
       Hi love,<br><br>
       You make my days brighter and my heart happier.<br>
